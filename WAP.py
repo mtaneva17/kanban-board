@@ -1,6 +1,6 @@
 from tkinter import *
 import winsound
-import sched
+import schedule
 import time
 import datetime
 
@@ -20,9 +20,12 @@ def alarm(set_alarm_timer):
             winsound.PlaySound("sound.wav",winsound.SND_ASYNC)
 
   
-        sched.every(1).hours.do(alarm)
-        while True:
-            sched.run_pending()
+def job():
+    schedule.every(45).minutes.do(job)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
 
 def actual_time():
     set_alarm_timer = f"{hour.get()}:{min.get()}:{sec.get()}"
