@@ -1,12 +1,14 @@
 from tkinter import *
 import winsound
+import sched
 import time
 import datetime
+
 
 def alarm(set_alarm_timer):
 
     while True:
-        time.sleep(10)
+        time.sleep(1)
         current_time = datetime.datetime.now()
         now = current_time.strftime("%H:%M:%S")
         date = current_time.strftime("%d/%m/%Y")
@@ -16,11 +18,16 @@ def alarm(set_alarm_timer):
         if now == set_alarm_timer:
             print("Time To Drink Water!")
             winsound.PlaySound("sound.wav",winsound.SND_ASYNC)
-            break
+
+  
+        sched.every(1).hours.do(alarm)
+        while True:
+            sched.run_pending()
 
 def actual_time():
-    set_alarm_timer = f"{hour.get()}:{min.get()}"
+    set_alarm_timer = f"{hour.get()}:{min.get()}:{sec.get()}"
     alarm(set_alarm_timer)
+
 
 clock = Tk()
 clock.title("WAP")
@@ -28,14 +35,18 @@ clock.geometry("700x500")
 clock.config(bg='#8cd1fe')
 
 time_format = Label(clock, text = " Enter time in 24 hour format! ", fg = "white", bg = "black", font = ("Arial", 12, "italic")).place(x = 250, y = 300)
-addTime = Label(clock, text = " Hour:" + "      " + "Min: ", font = ("Arial", 14, "bold"), bg = "#8cd1fe").place(x = 280, y = 160)
+addTime = Label(clock, text = " Hour: " + "      " + "Min: " + "      " + "Sec: ", font = ("Arial", 14, "bold"), bg = "#8cd1fe").place(x = 240, y = 160)
 setYourAlarm = Label(clock, text = " When to drink water: ", fg = "black", relief = "sunken", font = ("Arial", 28, "bold")).place(x = 160, y = 60)
 
 hour = StringVar()
 min = StringVar()
+sec = StringVar()
 
-hourTime= Entry(clock, textvariable = hour, bg = "white", width = 11).place(x = 280, y = 190)
-minTime= Entry(clock, textvariable = min, bg = "white", width = 11).place(x = 360, y = 190)
+hourTime= Entry(clock, textvariable = hour, bg = "white", width = 11).place(x = 240, y = 190)
+minTime= Entry(clock, textvariable = min, bg = "white", width = 11).place(x = 320, y = 190)
+secTime = Entry(clock, textvariable = sec, bg = "white", width = 11).place(x = 400, y = 190)
 
 submit = Button(clock, text = " Set Alarm ", fg = "black", width = 11, font = ("Arial", 12), command = actual_time).place(x = 300, y = 240)
 clock.mainloop()
+
+
