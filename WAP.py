@@ -6,6 +6,7 @@ import datetime
 from tkinter import Spinbox
 
 
+
 def alarm(set_alarm_timer):
 
     while True:
@@ -50,18 +51,21 @@ addHr = Label(
     font = ("Arial", 18, "bold"), 
     bg = "#8cd1fe"
     ).place(x = 228, y = 100)
+
 addMn = Label(
     clock, 
     text = " Min: ", 
     font = ("Arial", 18, "bold"), 
     bg = "#8cd1fe"
     ).place(x = 314, y = 100)
+
 addSc = Label(
     clock, 
     text = " Sec: ", 
     font = ("Arial", 18, "bold"), 
     bg = "#8cd1fe"
     ).place(x = 392, y = 100)
+
 
 setYourAlarm = Label(
     clock, 
@@ -125,6 +129,7 @@ checker = Label(
     font = ("Arial", 20, "bold")
     ).place(x = 170, y = 456)
 
+
 sb = Spinbox(
     clock,
     bg = "#EEFCFF",
@@ -145,6 +150,7 @@ mil = Label(
     font = ("Arial", 18), 
     ).place(x = 145, y = 510)
 
+
 sub_mil = Button(
     clock, 
     # bg = ,
@@ -155,7 +161,6 @@ sub_mil = Button(
     font = ("Arial", 12), 
     command = ()
     ).place(x = 455, y = 510)
-
 
 
 canvas = Canvas(
@@ -169,6 +174,7 @@ canvas.place(x = 250, y = 260)
 img = PhotoImage(file = 'logo200.png')
 canvas.create_image(0, 0, anchor = NW, image = img)   
 
+
 exit_button = Button(
     clock, 
     # bg = ,
@@ -179,6 +185,7 @@ exit_button = Button(
     font = ("Arial", 12), 
     command = clock.destroy
     ).place(x = 605, y = 545)
+
 
 clock.mainloop()
 
