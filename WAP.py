@@ -1,4 +1,3 @@
-from timeit import repeat
 from tkinter import *
 import winsound
 import schedule
@@ -28,7 +27,7 @@ def actual_time():
     
 
 def job():
-    schedule.every(45).minutes.do(job)
+    schedule.every(60).minutes.do(job)
     while True:
         schedule.run_pending()
         time.sleep(1)
@@ -43,26 +42,26 @@ time_format = Label(
     clock, 
     text = " Enter time in 24 hour format! ", 
     fg = "white", bg = "#000000", font = ("Arial", 12, "italic")
-    ).place(x = 242, y = 300)
+    ).place(x = 242, y = 235)
 
 addHr = Label(
     clock, 
     text = " Hour: ",
     font = ("Arial", 18, "bold"), 
     bg = "#8cd1fe"
-    ).place(x = 228, y = 158)
+    ).place(x = 228, y = 100)
 addMn = Label(
     clock, 
     text = " Min: ", 
     font = ("Arial", 18, "bold"), 
     bg = "#8cd1fe"
-    ).place(x = 314, y = 158)
+    ).place(x = 314, y = 100)
 addSc = Label(
     clock, 
     text = " Sec: ", 
     font = ("Arial", 18, "bold"), 
     bg = "#8cd1fe"
-    ).place(x = 392, y = 158)
+    ).place(x = 392, y = 100)
 
 setYourAlarm = Label(
     clock, 
@@ -71,7 +70,7 @@ setYourAlarm = Label(
     fg = "black", 
     relief = "sunken", 
     font = ("Arial", 32, "bold")
-    ).place(x = 125, y = 60)
+    ).place(x = 125, y = 30)
 
 
 hour = StringVar()
@@ -85,7 +84,7 @@ hourTime = Entry(
     bg = "#EEFCFF", 
     width = 6,
     font= ("Arial", 16),
-    ).place(x = 230, y = 190)
+    ).place(x = 230, y = 132)
 
 minTime = Entry(
     clock, 
@@ -93,7 +92,7 @@ minTime = Entry(
     bg = "#EEFCFF", 
     width = 6,
     font= ("Arial", 16),
-    ).place(x = 310, y = 190)
+    ).place(x = 310, y = 132)
 
 secTime = Entry(
     clock, 
@@ -101,7 +100,7 @@ secTime = Entry(
     bg = "#EEFCFF", 
     width = 6,
     font= ("Arial", 16),
-    ).place(x = 390, y = 190)
+    ).place(x = 390, y = 132)
 
 
 submit = Button(
@@ -111,7 +110,10 @@ submit = Button(
     width = 12, 
     font = ("Arial", 14), 
     command = actual_time
-    ).place(x = 280, y = 240)
+    ).place(x = 280, y = 178)
+
+
+
 
 
 checker = Label(
@@ -121,7 +123,7 @@ checker = Label(
     text = " How much did you drink? ", 
     fg = "#000000", 
     font = ("Arial", 20, "bold")
-    ).place(x = 170, y = 380)
+    ).place(x = 170, y = 456)
 
 sb = Spinbox(
     clock,
@@ -132,7 +134,7 @@ sb = Spinbox(
     increment = 50,
     format = '%8.0f',
     font = ("Arial", 18)
-).place(x = 268, y = 435)
+).place(x = 268, y = 511)
 
 
 mil = Label(
@@ -141,7 +143,7 @@ mil = Label(
     bg = "#EEFCFF",
     relief = "ridge", 
     font = ("Arial", 18), 
-    ).place(x = 145, y = 434)
+    ).place(x = 145, y = 510)
 
 sub_mil = Button(
     clock, 
@@ -152,8 +154,31 @@ sub_mil = Button(
     height = 0,
     font = ("Arial", 12), 
     command = ()
-    ).place(x = 445, y = 434)
+    ).place(x = 455, y = 510)
+
+
+
+canvas = Canvas(
+    clock, 
+    width = 192, 
+    height = 192,
+    highlightbackground = "#8cd1fe", 
+    )
+canvas.pack()
+canvas.place(x = 250, y = 260)
+img = PhotoImage(file = 'logo200.png')
+canvas.create_image(0, 0, anchor = NW, image = img)   
+
+exit_button = Button(
+    clock, 
+    # bg = ,
+    text = " Exit ", 
+    fg = "#000000", 
+    width = 6, 
+    height = 0,
+    font = ("Arial", 12), 
+    command = clock.destroy
+    ).place(x = 605, y = 545)
 
 clock.mainloop()
-
 
