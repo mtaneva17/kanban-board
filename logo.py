@@ -1,3 +1,7 @@
+# Отидете в WAP.py!!!!
+
+
+
 # import os
 # from turtle import heading
 # from PIL import Image

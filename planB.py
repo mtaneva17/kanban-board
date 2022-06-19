@@ -1,3 +1,7 @@
+# Отидете в WAP.py!!!!
+
+
+
 # from timeit import repeat
 # from tkinter import *
 # import winsound

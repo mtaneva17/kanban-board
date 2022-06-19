@@ -1,3 +1,7 @@
+# Отидете в WAP.py!!!!
+
+
+
 # from tkinter import *
 # from tkinter import filedialog
 

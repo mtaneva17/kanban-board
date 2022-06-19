@@ -1,3 +1,7 @@
+# Отидете в WAP.py!!!!
+
+
+
 # from tkinter import *
 
 # root = Tk()
