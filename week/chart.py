@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
   
 
 left = [1, 2, 3, 4, 5, 6, 7]
-height = [1000, 2400, 3600, 4000, 2500, 4500, 3200] # Примерни стойности.
+height = [1000, 2400, 3600, 1000, 2500, 4500, 3200] # Примерни стойности.
   
 range = (0, 4000)
 tick_label = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
