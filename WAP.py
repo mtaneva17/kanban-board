@@ -188,6 +188,7 @@ sb = Spinbox(
 # Информацията ще трябва да се въведе през терминалa.
 # Може да се въведе до 1 ред информация. Ако искате да въведете повече или създавате 
 # нов файл по същия начин, или отваряте вече съществуващия и въвеждате в него.
+
 def saveFile():
     file = filedialog.asksaveasfile(defaultextension='.txt',
                                     filetypes=[
@@ -199,6 +200,9 @@ def saveFile():
     filetext = input("Enter milliliters: ") # console window
     file.write(filetext)
     file.close()
+
+# def saveInfo():
+#     saveFile.config(text = sb.get())
 
 sub_mil = Button(
     clock, 
