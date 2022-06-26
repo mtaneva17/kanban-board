@@ -201,8 +201,6 @@ def saveFile():
     file.write(filetext)
     file.close()
 
-# def saveInfo():
-#     saveFile.config(text = sb.get())
 
 sub_mil = Button(
     clock, 
